@@ -1,10 +1,9 @@
 #pragma once
 
 #include "raylib.h"
-#include <iostream>
 
 # define CELL_COLOR GREEN
-# define CELL_SIZE 15
+# define CELL_SIZE 25
 
 class Cell {
 	public:
