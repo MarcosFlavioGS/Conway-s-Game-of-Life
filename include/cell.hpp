@@ -3,7 +3,7 @@
 #include "raylib.h"
 
 # define CELL_COLOR GREEN
-# define CELL_SIZE 25
+# define CELL_SIZE 5
 
 class Cell {
 	public:

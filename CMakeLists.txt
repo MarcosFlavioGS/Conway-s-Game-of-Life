@@ -32,6 +32,7 @@ file(GLOB SOURCES
   	${SRC_DIR}grid/*.cpp
   	${SRC_DIR}title/*.cpp
   	${SRC_DIR}pause/*.cpp
+  	${SRC_DIR}gameplay/*.cpp
 )
 
 # Create the executable

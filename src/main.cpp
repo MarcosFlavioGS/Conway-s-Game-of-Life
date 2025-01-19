@@ -3,6 +3,7 @@
 #include "../include/grid.hpp"
 #include "../include/title.hpp"
 #include "../include/pause.hpp"
+#include "../include/gameplay.hpp"
 
 int main(int argc, char *argv[]) {
 
@@ -12,7 +13,7 @@ int main(int argc, char *argv[]) {
    int frame_counter { 0 };
    SetTargetFPS(10);
 
-   bool outline { true };
+   bool outline { false };
 
    Cell grid[ROLLS][COLS];
 
@@ -46,21 +47,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   if (IsKeyReleased(KEY_R)) random_grid(grid);
-			   else if (IsKeyReleased(KEY_C)) clear_grid(grid);
-			   else if (IsKeyReleased(KEY_O)) outline ^= true;
-			   
-			   update_grid(grid);
-
-			   ClearBackground(BACKGROUND_COLOR);
-
-			   for (int i {0}; i < ROLLS; i++) {
-				   for (int j {}; j < COLS; j++) {
-					   if (grid[i][j].is_alive()) DrawRectangleRounded(grid[i][j].cell, 0.3, 4, CELL_COLOR);
-					   if (outline) DrawRectangleRoundedLines(grid[i][j].cell, 0.3, 4, LIGHTGRAY);
-				   }
-			   }
-			   
+			   game(grid, &outline);
 		   } break;
 
 		   case PAUSE: {
