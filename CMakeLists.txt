@@ -23,7 +23,6 @@ project(game_of_life)
 
 set(CMAKE_CXX_STANDARD 20) # Requires C++20 standard
 
-# Add the path to your local library
 set(RAYLIB_LOCAL_LIB "${CMAKE_SOURCE_DIR}/lib/libraylib.a")
 
 set(SRC_DIR "${CMAKE_SOURCE_DIR}/src/")
@@ -35,10 +34,8 @@ file(GLOB SOURCES
   	${SRC_DIR}gameplay/*.cpp
 )
 
-# Create the executable
 add_executable(${PROJECT_NAME} ${SRC_DIR}main.cpp ${SOURCES})
 
-# Link the local static library instead of the system-installed one
 target_link_libraries(${PROJECT_NAME} PRIVATE ${RAYLIB_LOCAL_LIB})
 
 # Checks if OSX and links appropriate frameworks (only required on MacOS)
