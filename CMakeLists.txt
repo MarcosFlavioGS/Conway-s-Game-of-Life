@@ -30,6 +30,8 @@ set(SRC_DIR "${CMAKE_SOURCE_DIR}/src/")
 
 file(GLOB SOURCES
   	${SRC_DIR}grid/*.cpp
+  	${SRC_DIR}title/*.cpp
+  	${SRC_DIR}pause/*.cpp
 )
 
 # Create the executable

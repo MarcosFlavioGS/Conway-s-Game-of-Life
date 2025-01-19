@@ -5,3 +5,5 @@
 #define SCREEN_HEIGTH 900
 
 # define BACKGROUND_COLOR BLACK
+
+enum GameScreen { TITLE, GAMEPLAY, PAUSE };
