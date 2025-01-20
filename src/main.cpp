@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
    SetTargetFPS(10);
 
    bool outline { false };
+   bool update { false };
 
    Cell grid[ROLLS][COLS];
 
@@ -47,7 +48,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   game(grid, &outline);
+			   game(grid, &outline, &update);
 		   } break;
 
 		   case PAUSE: {

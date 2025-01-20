@@ -1,11 +1,12 @@
 #include "../../include/grid.hpp"
 
-void game(Cell grid[][COLS], bool* outline) {
-	if (IsKeyReleased(KEY_R)) random_grid(grid);
+void game(Cell grid[][COLS], bool* outline, bool* update) {
+	if (IsKeyPressed(KEY_R)) random_grid(grid);
 	else if (IsKeyReleased(KEY_C)) clear_grid(grid);
 	else if (IsKeyReleased(KEY_O)) *outline ^= true;
+	else if (IsKeyReleased(KEY_SPACE)) *update ^= true;
 	
-	update_grid(grid);
+	if (*update) update_grid(grid);
 	
 	ClearBackground(BACKGROUND_COLOR);
 

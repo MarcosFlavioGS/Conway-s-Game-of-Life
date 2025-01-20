@@ -2,4 +2,4 @@
 
 #include "grid.hpp"
 
-void game(Cell grid[][COLS], bool* outline);
+void game(Cell grid[][COLS], bool* outline, bool* update);
