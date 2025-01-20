@@ -56,7 +56,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case PAUSE: {
-			   pause_screen();
+			   pause_screen(&auto_random);
 		   } break;
 
 		   default: break;
