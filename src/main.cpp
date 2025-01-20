@@ -11,10 +11,11 @@ int main(int argc, char *argv[]) {
    GameScreen current_screen { TITLE };
 
    int frame_counter { 0 };
-   SetTargetFPS(10);
+   SetTargetFPS(FRAME_RATE);
 
    bool outline { false };
    bool update { false };
+   bool auto_random { true };
 
    Cell grid[ROLLS][COLS];
 
@@ -26,7 +27,10 @@ int main(int argc, char *argv[]) {
 		   case TITLE: {
 			   frame_counter++;
 
-			   if (frame_counter > 50) current_screen = GAMEPLAY;
+			   if (frame_counter > (5 * FRAME_RATE)) {
+				   current_screen = GAMEPLAY;
+				   frame_counter = 0;
+			   }
 		   } break;
 
 		   case GAMEPLAY: {
@@ -48,7 +52,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   game(grid, &outline, &update);
+			   game(grid, &outline, &update, &frame_counter, &auto_random);
 		   } break;
 
 		   case PAUSE: {
