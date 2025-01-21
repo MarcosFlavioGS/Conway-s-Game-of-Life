@@ -21,6 +21,7 @@ int main(int argc, char *argv[]) {
    bool outline { false };
    bool update { false };
    bool auto_random { true };
+   bool mouse { false };
 
    Cell grid[ROLLS][COLS];
    Vector2 mouse_pos {};
@@ -58,7 +59,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   game(grid, &outline, &update, &frame_counter, &auto_random, &mouse_pos);
+			   game(grid, &outline, &update, &frame_counter, &auto_random, &mouse_pos, &mouse);
 		   } break;
 
 		   case PAUSE: {

@@ -12,3 +12,4 @@ void random_grid(Cell grid[][COLS]);
 void clear_grid(Cell grid[][COLS]);
 void update_grid(Cell grid[][COLS]);
 void update_grid(Cell grid[][COLS], Vector2* mouse_pos);
+void update_grid_point(Cell grid[][COLS], Vector2* mouse);
