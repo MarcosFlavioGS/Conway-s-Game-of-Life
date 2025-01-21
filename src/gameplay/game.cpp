@@ -20,8 +20,10 @@ void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bo
 
 	for (int i {0}; i < ROLLS; i++) {
 		for (int j {}; j < COLS; j++) {
-			if (grid[i][j].is_alive()) DrawRectangleRounded(grid[i][j].cell, 0.3, 4, CELL_COLOR);
-			if (*outline) DrawRectangleRoundedLines(grid[i][j].cell, 0.3, 4, LIGHTGRAY);
+			if (grid[i][j].cell.x <= SCREEN_WIDTH - int(CELL_SIZE / 2) && grid[i][j].cell.y <= SCREEN_HEIGHT - int(CELL_SIZE / 2)) {
+				if (grid[i][j].is_alive()) DrawRectangleRounded(grid[i][j].cell, 0.3, 4, CELL_COLOR);
+				if (*outline) DrawRectangleRoundedLines(grid[i][j].cell, 0.3, 4, LIGHTGRAY);
+			}
 		}
 	}
 }
