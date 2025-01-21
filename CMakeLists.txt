@@ -44,3 +44,17 @@ if (APPLE)
     target_link_libraries(${PROJECT_NAME} PRIVATE "-framework Cocoa")
     target_link_libraries(${PROJECT_NAME} PRIVATE "-framework OpenGL")
 endif()
+
+# -------------------------------------------------------------------->
+
+# Allow the user to specify a build type (defaults to Debug if not provided)
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build (Debug or Release)" FORCE)
+endif()
+
+# Set compiler flags for different build types
+set(CMAKE_CXX_FLAGS_DEBUG "-g")
+set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
+
+# Inform the user about the build type
+message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")

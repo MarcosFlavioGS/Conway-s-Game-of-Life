@@ -3,7 +3,7 @@
 #include "cell.hpp"
 #include "game.hpp"
 
-# define ROLLS (SCREEN_HEIGTH / CELL_SIZE)
+# define ROLLS (SCREEN_HEIGHT / CELL_SIZE)
 # define COLS (SCREEN_WIDTH / CELL_SIZE)
 
 void init_grid(Cell grid[][COLS]);

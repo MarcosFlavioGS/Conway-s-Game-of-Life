@@ -2,7 +2,7 @@
 
 #define NAME "Game of Life"
 #define SCREEN_WIDTH 1440
-#define SCREEN_HEIGTH 900
+#define SCREEN_HEIGHT 900
 
 #define FRAME_RATE 10
 

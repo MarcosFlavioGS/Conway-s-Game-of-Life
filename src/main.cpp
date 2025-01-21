@@ -7,8 +7,13 @@
 
 int main(int argc, char *argv[]) {
 
-   InitWindow(SCREEN_WIDTH, SCREEN_HEIGTH, NAME);
+   InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NAME);
    GameScreen current_screen { TITLE };
+
+   // int screenH = GetScreenHeight();
+   // int screenW = GetScreenWidth();
+   // std::cout << "Screen Height: " << screenH << std::endl;
+   // std::cout << "Screen Width: " << screenW << std::endl;
 
    int frame_counter { 0 };
    SetTargetFPS(FRAME_RATE);
