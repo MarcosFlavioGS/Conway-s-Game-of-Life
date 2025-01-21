@@ -9,16 +9,17 @@ class Cell {
 	public:
 		Rectangle cell {};
 		int alive {};
+
+		float x_min {};
+		float x_max {};
+		float y_min {};
+		float y_max {};
 	public:
 		Cell() {
 			cell.x = 1;
 			cell.y = 1;
 			cell.height = CELL_SIZE;
 			cell.width = CELL_SIZE;
-		}
-
-		Cell(Rectangle rec) {
-			cell = rec;
 		}
 
 		bool is_alive() {
@@ -31,5 +32,9 @@ class Cell {
 
 		void die_now() {
 			alive = 0;
+		}
+
+		bool is_inside(Vector2* point) {
+			return (x_min <= point->x && point->x <= x_max) && (y_min >= point->y && point->y >= y_max);
 		}
 };

@@ -1,11 +1,14 @@
 #include "../../include/grid.hpp"
 
-void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bool* auto_random) {
+void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bool* auto_random, Vector2* mouse_pos) {
+	bool mouse { false };
+
 	if (IsKeyPressed(KEY_R)) random_grid(grid);
 	else if (IsKeyReleased(KEY_C)) clear_grid(grid);
 	else if (IsKeyReleased(KEY_O)) *outline ^= true;
 	else if (IsKeyReleased(KEY_SPACE)) *update ^= true;
 	else if (IsKeyReleased(KEY_U)) *auto_random ^= true;
+	else if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) mouse = true; *mouse_pos = GetMousePosition();
 
 	*frame_counter += *update ? 1 : 1 + -1; // stalls counter while update is off
 
@@ -14,7 +17,14 @@ void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bo
 		*frame_counter = 0;
 	}
 
-	if (*update) update_grid(grid);
+	if (*update) {
+		if (mouse) {
+			update_grid(grid, mouse_pos);
+		}
+		else {
+			update_grid(grid);
+		}
+	}
 	
 	ClearBackground(BACKGROUND_COLOR);
 
