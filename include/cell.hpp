@@ -15,12 +15,21 @@ class Cell {
 		float y_min {};
 		float y_max {};
 	public:
-		Cell() {
-			cell.x = 1;
-			cell.y = 1;
-			cell.height = CELL_SIZE;
+		Cell(int i, int j) {
+			// Set the position and dimensions of the rectangle
+			cell.x = j * (CELL_SIZE + 3);
+			cell.y = i * (CELL_SIZE + 3);
 			cell.width = CELL_SIZE;
+			cell.height = CELL_SIZE;
+
+			// Calculate boundaries
+			x_min = cell.x;
+			y_min = cell.y + CELL_SIZE - 1;
+			x_max = cell.x + CELL_SIZE - 1;
+			y_max = cell.y;
 		}
+
+		Cell() {}
 
 		bool is_alive() {
 			return alive;

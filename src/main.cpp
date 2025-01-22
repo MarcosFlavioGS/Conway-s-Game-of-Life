@@ -23,10 +23,12 @@ int main(int argc, char *argv[]) {
    bool auto_random { true };
    bool mouse { false };
 
-   Cell grid[ROLLS][COLS];
+   auto grid = std::make_unique<std::vector<std::vector<Cell>>>();
+   grid->resize(ROLLS, std::vector<Cell>(COLS));
+
    Vector2 mouse_pos {};
 
-   init_grid(grid);
+   init_grid(grid.get());
 
    while (!WindowShouldClose()) {
 
@@ -59,7 +61,7 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   game(grid, &outline, &update, &frame_counter, &auto_random, &mouse_pos, &mouse);
+			   game(grid.get(), &outline, &update, &frame_counter, &auto_random, &mouse_pos, &mouse);
 		   } break;
 
 		   case PAUSE: {

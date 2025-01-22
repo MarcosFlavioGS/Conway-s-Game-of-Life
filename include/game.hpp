@@ -8,4 +8,7 @@
 
 # define BACKGROUND_COLOR BLACK
 
+#include <memory>
+#include <vector>
+
 enum GameScreen { TITLE, GAMEPLAY, PAUSE };

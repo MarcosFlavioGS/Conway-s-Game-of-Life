@@ -1,6 +1,6 @@
 #include "../../include/grid.hpp"
 
-void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bool* auto_random, Vector2* mouse_pos, bool* mouse) {
+void game(std::vector<std::vector<Cell>>* grid, bool* outline, bool* update, int* frame_counter, bool* auto_random, Vector2* mouse_pos, bool* mouse) {
 
 	if (IsKeyPressed(KEY_R)) random_grid(grid);
 	else if (IsKeyReleased(KEY_C)) clear_grid(grid);
@@ -39,11 +39,11 @@ void game(Cell grid[][COLS], bool* outline, bool* update, int* frame_counter, bo
 
 	for (int i {0}; i < ROLLS; i++) {
 		for (int j {}; j < COLS; j++) {
-			if (grid[i][j].cell.x <= SCREEN_WIDTH - int(CELL_SIZE / 2) && grid[i][j].cell.y <= SCREEN_HEIGHT - int(CELL_SIZE / 2)) {
-				if (grid[i][j].is_alive()) {
-					DrawRectangleRounded(grid[i][j].cell, 0.3, 4, CELL_COLOR);
+			if ((*grid)[i][j].cell.x <= SCREEN_WIDTH - int(CELL_SIZE / 2) && (*grid)[i][j].cell.y <= SCREEN_HEIGHT - int(CELL_SIZE / 2)) {
+				if ((*grid)[i][j].is_alive()) {
+					DrawRectangleRounded((*grid)[i][j].cell, 0.3, 4, CELL_COLOR);
 				}
-				if (*outline) DrawRectangleRoundedLines(grid[i][j].cell, 0.3, 4, LIGHTGRAY);
+				if (*outline) DrawRectangleRoundedLines((*grid)[i][j].cell, 0.3, 4, LIGHTGRAY);
 			}
 		}
 	}
