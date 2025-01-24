@@ -19,20 +19,14 @@ void game(std::vector<std::vector<Cell>>* grid, bool* outline, bool* update, int
 		*frame_counter = 0;
 	}
 
-	switch (*update) {
-		case true: {
-			if (*mouse) {
-				update_grid(grid, mouse_pos);
-				*mouse = false;
-			}
-			else if (!*mouse) update_grid(grid);
-		} break;
-
-		case false: {
-			if (*mouse) update_grid_point(grid, mouse_pos); *mouse = false;
-		} break;
-
-		default: break;
+	if (*update) {
+		if (*mouse) {
+			update_grid(grid, mouse_pos);
+			*mouse = false;
+		}
+		else if (!*mouse) update_grid(grid);
+	} else {
+		if (*mouse) update_grid_point(grid, mouse_pos); *mouse = false;
 	}
 
 	ClearBackground(BACKGROUND_COLOR);
