@@ -10,21 +10,15 @@ int main(int argc, char *argv[]) {
    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NAME);
    GameScreen current_screen { TITLE };
 
-   // int screenH = GetScreenHeight();
-   // int screenW = GetScreenWidth();
-   // std::cout << "Screen Height: " << screenH << std::endl;
-   // std::cout << "Screen Width: " << screenW << std::endl;
-
    int frame_counter { 0 };
    SetTargetFPS(FRAME_RATE);
 
    bool outline { false };
    bool update { false };
-   bool auto_random { true };
+   bool auto_random { false };
    bool mouse { false };
 
-   auto grid = std::make_unique<std::vector<std::vector<Cell>>>();
-   grid->resize(ROLLS, std::vector<Cell>(COLS));
+    auto grid = std::make_unique<std::vector<std::vector<Cell>>>(ROLLS, std::vector<Cell>(COLS));
 
    Vector2 mouse_pos {};
 
