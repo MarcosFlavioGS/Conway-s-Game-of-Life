@@ -1,6 +1,8 @@
 #include "../../include/grid.hpp"
 
-static int check_neighbors(const std::vector<std::vector<Cell>>* g, int i, int j) {
+using namespace std;
+
+static int check_neighbors(const vector<vector<Cell>>* g, int i, int j) {
     int neighbor_sum = 0;
 
     for (int di = -1; di <= 1; ++di) {        // Loop over rows around the cell
@@ -22,8 +24,8 @@ static int check_neighbors(const std::vector<std::vector<Cell>>* g, int i, int j
     return neighbor_sum;
 }
 
-void update_grid(std::vector<std::vector<Cell>>* grid) {
-    auto new_grid = std::make_unique<std::vector<std::vector<Cell>>>(ROLLS, std::vector<Cell>(COLS));
+void update_grid(vector<vector<Cell>>* grid) {
+    auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());
 
     for (int i {}; i < ROLLS; i++) {
@@ -52,8 +54,8 @@ void update_grid(std::vector<std::vector<Cell>>* grid) {
 	*grid = std::move(*new_grid);
 }
 
-void update_grid(std::vector<std::vector<Cell>>* grid, Vector2* mouse_pos) {
-    auto new_grid = std::make_unique<std::vector<std::vector<Cell>>>(ROLLS, std::vector<Cell>(COLS));
+void update_grid(vector<vector<Cell>>* grid, Vector2* mouse_pos) {
+    auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());
 
 
@@ -89,8 +91,8 @@ void update_grid(std::vector<std::vector<Cell>>* grid, Vector2* mouse_pos) {
 	*grid = std::move(*new_grid);
 }
 
-void update_grid_point(std::vector<std::vector<Cell>>* grid, Vector2* mouse) {
-    auto new_grid = std::make_unique<std::vector<std::vector<Cell>>>(ROLLS, std::vector<Cell>(COLS));
+void update_grid_point(vector<vector<Cell>>* grid, Vector2* mouse) {
+    auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());
 
 	for (int i {}; i < ROLLS; i++) {

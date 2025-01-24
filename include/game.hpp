@@ -4,7 +4,7 @@
 #define SCREEN_WIDTH 1440
 #define SCREEN_HEIGHT 900
 
-#define FRAME_RATE 10
+#define FRAME_RATE 24
 
 # define BACKGROUND_COLOR BLACK
 

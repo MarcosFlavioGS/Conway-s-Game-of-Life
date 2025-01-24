@@ -5,20 +5,22 @@
 #include "../include/pause.hpp"
 #include "../include/gameplay.hpp"
 
+using namespace std;
+
 int main(int argc, char *argv[]) {
 
    InitWindow(SCREEN_WIDTH, SCREEN_HEIGHT, NAME);
    GameScreen current_screen { TITLE };
 
-   int frame_counter { 0 };
+   int frame_counter {};
    SetTargetFPS(FRAME_RATE);
 
-   bool outline { false };
-   bool update { false };
-   bool auto_random { false };
-   bool mouse { false };
+   bool outline {};
+   bool update {};
+   bool auto_random {};
+   bool mouse {};
 
-    auto grid = std::make_unique<std::vector<std::vector<Cell>>>(ROLLS, std::vector<Cell>(COLS));
+    auto grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 
    Vector2 mouse_pos {};
 
@@ -37,11 +39,11 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   if (IsKeyReleased(KEY_TAB)) current_screen = PAUSE;
+			   if (IsKeyPressed(KEY_TAB)) current_screen = PAUSE;
 		   } break;
 
 		   case PAUSE: {
-			  if (IsKeyReleased(KEY_TAB) || IsKeyReleased(KEY_ENTER)) current_screen = GAMEPLAY; 
+			  if (IsKeyPressed(KEY_TAB) || IsKeyReleased(KEY_ENTER)) current_screen = GAMEPLAY; 
 		   } break;
 
 		   default: break;
