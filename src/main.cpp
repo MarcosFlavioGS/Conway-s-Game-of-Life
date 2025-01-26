@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
    bool auto_random {};
    bool mouse {};
 
-    auto grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
+   auto grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 
    Vector2 mouse_pos {};
 

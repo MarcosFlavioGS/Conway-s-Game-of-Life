@@ -24,6 +24,9 @@ static int check_neighbors(const vector<vector<Cell>>* g, int i, int j) {
     return neighbor_sum;
 }
 
+/**
+ * Updates the whole grid
+ */
 void update_grid(vector<vector<Cell>>* grid) {
     auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());
@@ -54,6 +57,9 @@ void update_grid(vector<vector<Cell>>* grid) {
 	*grid = std::move(*new_grid);
 }
 
+/**
+ * Updates whole grid taking in consideration the clicket cell
+ */
 void update_grid(vector<vector<Cell>>* grid, Vector2* mouse_pos) {
     auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());
@@ -91,6 +97,9 @@ void update_grid(vector<vector<Cell>>* grid, Vector2* mouse_pos) {
 	*grid = std::move(*new_grid);
 }
 
+/**
+ * Updates only the cell clicked by the mouse while paused
+ */
 void update_grid_point(vector<vector<Cell>>* grid, Vector2* mouse) {
     auto new_grid = make_unique<vector<vector<Cell>>>(ROLLS, vector<Cell>(COLS));
 	init_grid(new_grid.get());

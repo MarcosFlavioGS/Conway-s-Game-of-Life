@@ -1,6 +1,8 @@
 #include "../../include/grid.hpp"
 
-void game(std::vector<std::vector<Cell>>* grid, bool* outline, bool* update, int* frame_counter, bool* auto_random, Vector2* mouse_pos, bool* mouse) {
+using namespace std;
+
+void game(vector<vector<Cell>>* grid, bool* outline, bool* update, int* frame_counter, bool* auto_random, Vector2* mouse_pos, bool* mouse) {
 
 	if (IsKeyPressed(KEY_R)) random_grid(grid);
 	else if (IsKeyReleased(KEY_C)) clear_grid(grid);
