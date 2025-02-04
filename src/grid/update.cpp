@@ -107,7 +107,10 @@ void update_grid_point(vector<vector<Cell>>* grid, Vector2* mouse) {
 	for (int i {}; i < ROLLS; i++) {
 	   for (int j {}; j < COLS; j++) {
 
-		   if ((*grid)[i][j].is_inside(mouse)) {
+		   if ((*grid)[i][j].is_inside(mouse) && (*grid)[i][j].is_alive()) {
+			   (*new_grid)[i][j].die_now();
+		   }
+		   else if ((*grid)[i][j].is_inside(mouse) && !(*grid)[i][j].is_alive()) {
 			   (*new_grid)[i][j].rise_my_child();
 		   } else {
 			   (*new_grid)[i][j].alive = (*grid)[i][j].alive;

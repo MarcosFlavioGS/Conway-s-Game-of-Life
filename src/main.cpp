@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 		   case TITLE: {
 			   frame_counter++;
 
-			   if (frame_counter > (5 * FRAME_RATE)) {
+			   if (frame_counter > (5 * FRAME_RATE)) { // Wait 5 seconds in title screen
 				   current_screen = GAMEPLAY;
 				   frame_counter = 0;
 			   }
