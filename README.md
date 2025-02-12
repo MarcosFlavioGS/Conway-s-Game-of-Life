@@ -1,5 +1,4 @@
-
-https://github.com/user-attachments/assets/aa1837a1-076c-4c8f-8702-45dea14de163
+![output](https://github.com/user-attachments/assets/c904a633-ac92-4c8d-8212-d0064f71a1f9)
 
 # Conway's Game of Life
 
