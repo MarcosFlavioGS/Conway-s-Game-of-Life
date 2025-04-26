@@ -16,7 +16,7 @@ void game(vector<vector<Cell>>* grid, bool* outline, bool* update, int* frame_co
 
 	*frame_counter += *update ? 1 : 1 + -1; // stalls counter while update is off
 
-	if (*auto_random && *frame_counter > (180 * FRAME_RATE)) { // 3 min
+	if (*auto_random && *frame_counter > (120 * FRAME_RATE)) { // 2 min
 		random_grid(grid);
 		*frame_counter = 0;
 	}
