@@ -57,7 +57,14 @@ int main(int argc, char *argv[]) {
 		   } break;
 
 		   case GAMEPLAY: {
-			   game(grid.get(), &outline, &update, &frame_counter, &auto_random, &mouse_pos, &mouse);
+			   game(
+				   grid.get(),
+				   &outline,
+				   &update,
+				   &frame_counter,
+				   &auto_random,
+				   &mouse_pos,
+				   &mouse);
 		   } break;
 
 		   case PAUSE: {

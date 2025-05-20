@@ -1,8 +1,8 @@
 #pragma once
 
 #define NAME "Game of Life"
-#define SCREEN_WIDTH 1440
-#define SCREEN_HEIGHT 900
+#define SCREEN_WIDTH 3600
+#define SCREEN_HEIGHT 2000
 
 #define FRAME_RATE 24
 
